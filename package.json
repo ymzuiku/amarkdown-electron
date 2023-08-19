@@ -1,0 +1,41 @@
+{
+  "name": "amarkdown",
+  "productName": "amarkdown",
+  "version": "1.0.1",
+  "description": "A modern markdown editor",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "make:win": "electron-forge make --arch=x64 --platform=win32",
+    "make:m1": "electron-forge make --arch=arm64",
+    "make:x64": "electron-forge make --arch=x64",
+    "make:all": "rm -rf out && electron-forge make --arch=arm64 && electron-forge make --arch=x64",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "keywords": [],
+  "author": {
+    "name": "pillar",
+    "email": "ymblender@gmail.com"
+  },
+  "dependencies": {
+    "@electron-forge/maker-dmg": "^6.2.1",
+    "@fastify/cors": "^8.3.0",
+    "archiver": "^5.3.1",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.1.0",
+    "fastify": "^4.20.0",
+    "unzipper": "^0.10.14"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.2.1",
+    "@electron-forge/maker-deb": "^6.2.1",
+    "@electron-forge/maker-rpm": "^6.2.1",
+    "@electron-forge/maker-squirrel": "^6.2.1",
+    "@electron-forge/maker-zip": "^6.2.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.2.1",
+    "electron": "25.3.1"
+  }
+}

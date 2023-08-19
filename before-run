@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# This script will execute the command 'xattr -cr /Applications/Amarkdown.app'
+xattr -cr /Applications/Amarkdown.app
+
+echo "Command executed successfully!"

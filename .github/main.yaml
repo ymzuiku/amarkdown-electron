@@ -1,0 +1,61 @@
+name: Amarkdown Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build Windows version
+        run: npx electron-forge make --arch=x64 --platform=win32
+      - name: Print File List
+        run: node logfiles.js
+      - name: Upload Windows artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Amarkdown_Windows
+          path: out/make/zip/win32/x64/*.zip
+
+  build-macosx64:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Upload macOS artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Amarkdown_Intel_chip
+          path: release/x64/*.dmg
+
+  build-macosarm64:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Upload macOS artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Amarkdown_Apple_silicon
+          path: release/arm64/*.dmg
