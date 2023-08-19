@@ -44,9 +44,9 @@ jobs:
 
       - name: Upload macOS artifacts
         uses: actions/upload-artifact@v2
-        with:
-          name: Amarkdown_Intel_chip
-          path: release/x64/*.dmg
+         with:
+          name: Amarkdown_Windows
+          path: out/make/zip/win32/x64/*.zip
 
   build-macosarm64:
     runs-on: macos-latest

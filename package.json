@@ -1,7 +1,7 @@
 {
   "name": "amarkdown",
   "productName": "amarkdown",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A modern markdown editor",
   "main": "src/index.js",
   "scripts": {
